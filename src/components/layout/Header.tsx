@@ -61,6 +61,29 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+          <a
+            href="tel:201-857-0419"
+            className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${
+              isScrolled
+                ? 'text-charcoal-700 hover:text-brand-600'
+                : 'text-white hover:text-brand-400'
+            }`}
+          >
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            (201) 857-0419
+          </a>
           <Link href="/contact" className="btn-primary text-sm">
             Get a Quote
           </Link>
@@ -114,9 +137,29 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="tel:201-857-0419"
+              className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-charcoal-800 px-4 py-3 text-base font-medium text-white transition-colors hover:bg-charcoal-700"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              (201) 857-0419
+            </a>
             <Link
               href="/contact"
-              className="btn-primary mt-4 block w-full text-center"
+              className="btn-primary mt-2 block w-full text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Get a Quote
