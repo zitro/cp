@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FadeIn, InstagramFeed } from '@/components/ui';
+import Script from 'next/script';
+import { FadeIn } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
+      {/* Elfsight Instagram Feed Script */}
+      <Script
+        src="https://elfsightcdn.com/platform.js"
+        strategy="lazyOnload"
+      />
+
       {/* Hero Section */}
       <section className="relative flex min-h-[40vh] items-center bg-charcoal-900 pt-20">
         <div className="absolute inset-0">
@@ -53,7 +60,11 @@ export default function GalleryPage() {
             </p>
           </FadeIn>
 
-          <InstagramFeed username="collisionpros2" />
+          {/* Elfsight Instagram Feed Widget */}
+          <div
+            className="elfsight-app-f0534d19-758e-42d0-8e0f-7da07d31464e"
+            data-elfsight-app-lazy
+          />
         </div>
       </section>
 
