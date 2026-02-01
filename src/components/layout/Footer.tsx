@@ -59,7 +59,7 @@ export function Footer() {
               alt="Collision Pros Body Work"
               width={160}
               height={53}
-              className="mb-6 h-12 w-auto brightness-0 invert"
+              className="mb-6 h-16 w-auto"
             />
             <p className="mb-6 text-charcoal-400">
               It takes truly inspired service to create a positive experience in

@@ -90,8 +90,8 @@ export function About() {
           <FadeIn animation="slide-in-left" className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
-                src="/images/a53336677eb30bbe5e96c364b12d3dd6x.jpg"
-                alt="Collision Pros Body Work shop"
+                src="/images/topBooth.jpg"
+                alt="Collision Pros Body Work paint booth facility"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

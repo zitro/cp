@@ -41,7 +41,7 @@ export function Header() {
             alt="Collision Pros Body Work"
             width={180}
             height={60}
-            className="h-12 w-auto sm:h-14"
+            className="h-24 w-auto sm:h-32"
             priority
           />
         </Link>
