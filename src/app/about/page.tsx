@@ -185,15 +185,14 @@ export default function AboutPage() {
                 Our Warranty
               </h2>
               <p className="mb-6 text-lg text-white/90">
-                We stand behind every repair with our comprehensive lifetime
-                warranty. This commitment to quality means you can drive with
-                confidence, knowing that your vehicle&apos;s repair is protected
-                for as long as you own it.
+                We stand behind every repair with our comprehensive warranty
+                program. This commitment to quality means you can drive with
+                confidence, knowing that your vehicle&apos;s repair is protected.
               </p>
               <ul className="mb-8 space-y-3">
                 {[
                   'Covers all workmanship',
-                  'Valid for vehicle lifetime',
+                  'Protects your repair investment',
                   'Transferable to new owners',
                   'No hidden exclusions',
                 ].map((item) => (
