@@ -193,7 +193,6 @@ export default function AboutPage() {
                 {[
                   'Covers all workmanship',
                   'Protects your repair investment',
-                  'Transferable to new owners',
                   'No hidden exclusions',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">

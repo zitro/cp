@@ -52,8 +52,7 @@ export default function TermsPage() {
             </h2>
             <p className="text-charcoal-600">
               We offer a warranty on all workmanship. This warranty
-              covers defects in our repair work for as long as you own the
-              vehicle. The warranty is transferable to subsequent owners.
+              covers defects in our repair work.
             </p>
 
             <h2 className="font-display mt-8 text-2xl font-bold text-charcoal-900">
