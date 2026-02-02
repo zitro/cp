@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
+import { submitContactForm } from '@/lib/actions/contact';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,19 +12,37 @@ export function ContactForm() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+
+    if (!turnstileToken) {
+      setError('Please complete the security check.');
+      return;
+    }
+
     setStatus('loading');
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const result = await submitContactForm({
+      ...formData,
+      turnstileToken,
+    });
 
-    // In production, you would send this to your backend
-    console.log('Form submitted:', formData);
-
-    setStatus('success');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    if (result.success) {
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
+    } else {
+      setStatus('error');
+      setError(result.error || 'Something went wrong. Please try again.');
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
+    }
   };
 
   const handleChange = (
@@ -143,9 +163,25 @@ export function ContactForm() {
         />
       </div>
 
+      <div className="flex justify-center">
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          onSuccess={setTurnstileToken}
+          onError={() => setTurnstileToken(null)}
+          onExpire={() => setTurnstileToken(null)}
+        />
+      </div>
+
+      {error && (
+        <div className="rounded-lg bg-red-50 p-3 text-center text-sm text-red-600">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        disabled={status === 'loading'}
+        disabled={status === 'loading' || !turnstileToken}
         className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === 'loading' ? (
